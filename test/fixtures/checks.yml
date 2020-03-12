@@ -1,11 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+sent:
   amount: 1
   sent_at: 2020-03-11 22:13:15
   nonprofit: one
 
-two:
+unsent:
   amount: 1
-  sent_at: 2020-03-11 22:13:15
+  sent_at: nil
   nonprofit: two

@@ -5,4 +5,9 @@ class Check < ApplicationRecord
   has_many :donations
 
   scope :unsent, -> { where(sent_at: nil).order(created_at: :asc) }
+
+  def mark_as_sent!
+    self.sent_at = Time.now
+    save!
+  end
 end

@@ -1,5 +1,5 @@
-class Check < ApplicationRecord
+class Donation < ApplicationRecord
   validates :amount, numericality: {greater_than: 0}
   belongs_to :nonprofit
-  has_many :donations
+  belongs_to :check, optional: true
 end

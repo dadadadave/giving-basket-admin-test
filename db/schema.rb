@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_12_021315) do
+ActiveRecord::Schema.define(version: 2020_03_12_021846) do
 
   create_table "checks", force: :cascade do |t|
     t.integer "amount"
@@ -19,6 +19,16 @@ ActiveRecord::Schema.define(version: 2020_03_12_021315) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["nonprofit_id"], name: "index_checks_on_nonprofit_id"
+  end
+
+  create_table "donations", force: :cascade do |t|
+    t.integer "amount"
+    t.integer "nonprofit_id", null: false
+    t.integer "check_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["check_id"], name: "index_donations_on_check_id"
+    t.index ["nonprofit_id"], name: "index_donations_on_nonprofit_id"
   end
 
   create_table "nonprofits", force: :cascade do |t|
@@ -30,4 +40,6 @@ ActiveRecord::Schema.define(version: 2020_03_12_021315) do
   end
 
   add_foreign_key "checks", "nonprofits"
+  add_foreign_key "donations", "checks"
+  add_foreign_key "donations", "nonprofits"
 end

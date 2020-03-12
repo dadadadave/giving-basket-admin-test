@@ -1,24 +1,24 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is my implementation of the backend of the Giving Basket admin interface for sending checks.
 
-Things you may want to cover:
+There are three routes with corresponding controller actions:
+* checks#index
+* nonprofits#update
+* payments#create
 
-* Ruby version
+three models:
+* Check
+* Donation
+* Nonprofit
 
-* System dependencies
+two service objects in the app/services directory:
+* CreateCheck
+* SendCheck
 
-* Configuration
+a Rake task to create checks for new donations:
+* rake check:prepare
 
-* Database creation
+and a set of seeds in db/seeds.rb.
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+All models, controllers and service objects are tested using Minitest.  I used the Kaminari gem to paginate the list of checks and Timecop to handle some time-related tests.  The pattern I used for the service objects was inspired by this blog post: https://brewhouse.io/blog/2014/04/30/gourmet-service-objects.html.

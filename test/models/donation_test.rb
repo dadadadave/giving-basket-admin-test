@@ -29,4 +29,10 @@ class DonationTest < ActiveSupport::TestCase
     donation.check = nil
     assert donation.valid?
   end
+
+  test "includes donations with no check" do
+    with_check = Donation.create(amount: 1, nonprofit: nonprofits(:with_stripe), check: checks(:sent))
+    no_check = Donation.create(amount: 1, nonprofit: nonprofits(:with_stripe), check: nil)
+    assert_equal [no_check], Donation.with_no_check
+  end
 end

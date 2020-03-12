@@ -8,7 +8,7 @@ class ChecksControllerTest < ActionDispatch::IntegrationTest
 
   test "should render the list of unsent checks correctly" do
     check_one = checks(:unsent)
-    check_two = Check.create(amount: 10, sent_at: nil, nonprofit: nonprofits(:two))
+    check_two = Check.create(amount: 10, sent_at: nil, nonprofit: nonprofits(:no_stripe))
 
     hash_one = {nonprofit_id: check_one.nonprofit_id,
                 nonprofit_name: check_one.nonprofit.name,

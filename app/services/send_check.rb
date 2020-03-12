@@ -1,9 +1,5 @@
-class SendCheck
+class SendCheck < ApplicationService
   attr_reader :check
-
-  def self.call(*args)
-    new(*args).call
-  end
 
   def initialize(check)
     @check = check

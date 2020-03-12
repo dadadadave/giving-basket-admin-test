@@ -1,11 +1,10 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+with_stripe:
   name: MyString
   address: MyText
   stripe_acct: MyString
 
-two:
+no_stripe:
   name: MyString
   address: MyText
-  stripe_acct: MyString

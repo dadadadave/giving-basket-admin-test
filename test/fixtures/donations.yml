@@ -2,10 +2,10 @@
 
 one:
   amount: 1
-  nonprofit: one
+  nonprofit: with_stripe
   check: one
 
 two:
   amount: 1
-  nonprofit: two
+  nonprofit: no_stripe
   check: two

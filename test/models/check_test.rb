@@ -27,8 +27,7 @@ class CheckTest < ActiveSupport::TestCase
   test "lists the unsent checks with the oldest first" do
     sent = checks(:sent)
     unsent = checks(:unsent)
-    old_unsent = Check.create(amount: 10, nonprofit: nonprofits(:one), sent_at: nil, created_at: 1.hour.ago)
-
+    old_unsent = Check.create(amount: 10, nonprofit: nonprofits(:no_stripe), sent_at: nil, created_at: 1.hour.ago)
     assert_equal [old_unsent, unsent], Check.unsent
   end
 

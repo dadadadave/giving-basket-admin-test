@@ -17,4 +17,16 @@ class NonprofitTest < ActiveSupport::TestCase
     nonprofit.address = ""
     assert nonprofit.invalid?
   end
+
+  test "responds correctly when updating with valid params" do
+    nonprofit = Nonprofit.find_and_update(nonprofits(:one).id, name: "New Name")
+    assert_equal "New Name", nonprofit.name
+    assert nonprofit.valid?
+  end
+
+  test "responds correctly when updating with invalid params" do
+    nonprofit = Nonprofit.find_and_update(nonprofits(:one).id, name: "")
+    assert_equal "", nonprofit.name
+    assert nonprofit.invalid?
+  end
 end
